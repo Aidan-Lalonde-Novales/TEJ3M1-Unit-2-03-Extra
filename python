@@ -1,0 +1,28 @@
+#  November 29th, 2021
+#  TEJ3M1 Unit 2-03 Extra
+#  Aidan Lalonde-Novales
+#  
+#  Turns an LED on a breadboard on for one second, then off for one second, then adds half a second to how long it's on for.
+
+import time
+import board
+import digitalio
+
+blink_time = 1.0 
+# variable is set to 1000ms or 1 second
+
+led = digitalio.DigitalInOut(board.GP13)
+led.direction = digitalio.Direction.OUTPUT
+
+while True: 
+    led.value = True
+    # keeps LED on
+    time.sleep(blink_time) 
+    # waits for the value of the blink_time variable
+    led.value = False
+    # keeps LED off
+    time.sleep(1.0)
+    # waits for 1000ms or 1 second
+
+    blink_time = blink_time + 0.5
+    # adds 500ms or 1/2 a second to the blink_time variable every cycle
